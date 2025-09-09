@@ -12,7 +12,7 @@ printf "%b⚡ Formatting unformatted files...%b\n" "$YELLOW" "$RESET"
 printf "%b🔍 Running lint-staged...%b\n" "$GREEN" "$RESET"
 
 # Run lint-staged (auto formats & lints staged files)
-npx lint-staged
+npx lint-staged --quiet
 
 # If lint-staged failed, block commit
 if [ $? -ne 0 ]; then
@@ -20,6 +20,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+echo ""
 echo "✅ All checks passed. Proceeding with commit."
 echo ""
 exit 0
